@@ -68,6 +68,7 @@
                             .css('top', departHaut)
                             .css('left', departGauche)							//debut de placement popup par la gauche
                             .css('width', largeur)						//largeur pop up
+							.css('position', 'fixed')
                             .css('height', 'auto')
                             .css('box-shadow', '0 0 30px #000')
                             .css('padding-bottom', '10px')
@@ -96,7 +97,7 @@
             $(this).hide()
             $(this).appendTo('body');
             $('.popup').hide();
-            $('.opaque').remove();
+            $('.opaque1').remove();
             $('.attente').remove();
 
         });
