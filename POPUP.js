@@ -5,7 +5,7 @@
 
 (function($)
 { 
-	$.fn.popUp=function( nomPopUp, largeur, departGauche,departHaut)
+	$.fn.popUp=function( nomPopUp, largeur, departGauche,departHaut,id)
 	{
 	   return this.each(function()
 	   {
@@ -22,7 +22,7 @@
                                         .css('background-color', '#000')
                                         .css('opacity', '0.6')
                                         .css('display', 'none')
-                                        .addClass('opaque');
+                                        .addClass('opaque'+id);
                             var attente = $('<i>').addClass('attente fa fa-refresh fa-spin fa-fw margin-bottom')
                                         .css('font-size', '10em')
                                         .css('z-index', '110')
@@ -48,7 +48,7 @@
                             .css('right', '-10px')
                             .css('cursor', 'pointer')
                             .css('z-index', '120')
-                            .addClass('close overBulle');
+                            .addClass('close'+id+' overBulle');
 
                         var titrePopup = $('<div>').addClass('gradient')
                             .css('color', '#F60')
@@ -76,7 +76,7 @@
             		    popup.append(close);
                         $(this).show();						//Element mis
                         popup.append($(this));				//dans le pop up
-                        $('.opaque').show();
+                        $('.opaque'+id).show();
                         popup.appendTo('body');
 
 
@@ -88,8 +88,11 @@
 
 
 // A METTRE DANS FICHIER DANS LA VIEW UTILISANT LE POPUP //  
+
+
+		$('#test1').popUp("test", "40%","30%" ,"30%",1);  ///// 1 dans ce cas est l'index unique du pop up qui correspond plus bas a opaque1 et close1
         /* LORS DE L'APPUIE DE LA ZONE GRISE DU POPUP, FERME LE POPUP*/
-        $('.opaque').live('click', function () {
+        $('.opaque1').live('click', function () {
             $(this).hide()
             $(this).appendTo('body');
             $('.popup').hide();
@@ -99,7 +102,7 @@
         });
 
         /* LORS DE L'APPUIE DU BOUTON CROIX DU POPUP, FERME LE POPUP */
-        $('.close').live('click', function () {
+        $('.close1').live('click', function () {
             $(this).hide();
             $(this).appendTo('body');
             $('.popup').hide();
