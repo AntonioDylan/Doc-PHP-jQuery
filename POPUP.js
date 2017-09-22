@@ -110,3 +110,8 @@
             $('.attente').remove();
 
         });
+		
+		
+	// A METTRE DANS FICHIER DANS MEDIA.INI // 	
+		;popUp.js
+media.popUp.scripts[]   = "%MEDIA_BASE_URL%/popUp/popUp.js"
